@@ -16,12 +16,15 @@ def index(request):
                 city) + "&appid=4247b26da6522ed8f74af54dfc0da192"
             five_days_weather_response = requests.get(five_days_weather_api)
             five_days_weather_data_api = json.loads(five_days_weather_response.text)
+            sunrise_time = datetime.fromtimestamp(current_weather_data_api['sys']['sunrise'])
+            sunset_time =datetime.fromtimestamp(current_weather_data_api['sys']['sunset'])
+
             current_day = {
                 "city": str(city).capitalize(),
                 "country_code": str(current_weather_data_api['sys']['country']),
                 "icon": str(current_weather_data_api['weather'][0]['icon']),
-                "sunrise_time": datetime.fromtimestamp(current_weather_data_api['sys']['sunrise']),
-                "sunset_time": datetime.fromtimestamp(current_weather_data_api['sys']['sunset']),
+                "sunrise_time": sunrise_time.strftime('%I:%M %p'),
+                "sunset_time": sunset_time.strftime('%I:%M %p'),
                 "coordinate_lon": str(current_weather_data_api['coord']['lon']),
                 "coordinate_lat": str(current_weather_data_api['coord']['lat']),
                 "temp": str(int(current_weather_data_api['main']['temp']) - 273) + " C",
@@ -38,8 +41,9 @@ def index(request):
                 date = datetime.strptime(date_json, '%Y-%m-%d %H:%M:%S')
                 if not(int(date.strftime('%d')) == today_date):
                     five_days_weather_list[j] = {}
-                    five_days_weather_list[j]['date'] = date.strftime('%d %b, %Y')
-                    five_days_weather_list[j]['time'] = date.strftime('%I:%M %p')
+                    five_days_weather_list[j]['day'] = date.strftime('%A')
+                    five_days_weather_list[j]['date'] = date.strftime('%d.%m.%Y')
+                    five_days_weather_list[j]['time'] = date.strftime('%I:%M')
                     five_days_weather_list[j]['temp'] = str(
                         int(five_days_weather_data_api['list'][i]['main']['temp']) - 273) + " C"
                     five_days_weather_list[j]['pressure'] = str(
