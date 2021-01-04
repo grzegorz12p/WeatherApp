@@ -36,9 +36,7 @@ def index(request):
             for i in range(0, five_days_weather_data_api['cnt']):
                 date_json = five_days_weather_data_api['list'][i]['dt_txt']
                 date = datetime.strptime(date_json, '%Y-%m-%d %H:%M:%S')
-                if int(date.strftime('%d')) == today_date or int(date.strftime('%d')) == today_date + 1:
-                    if int(date.strftime('%d')) == today_date + 1:
-                        today_date += 1
+                if not(int(date.strftime('%d')) == today_date):
                     five_days_weather_list[j] = {}
                     five_days_weather_list[j]['date'] = date.strftime('%d %b, %Y')
                     five_days_weather_list[j]['time'] = date.strftime('%I:%M %p')
