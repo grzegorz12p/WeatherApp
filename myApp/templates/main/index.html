@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <title>WeatherApp by Grzegorz Pytlak</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/e544c1ef68.js" crossorigin="anonymous"></script>
+
+</head>
+"
+<body>
+<div class="row justify-content-center">
+    <div class="container p-3 my-3 bg-dark text-white"><h1 class="col-md-3 text-center">WeatherApp</h1></div>
+    <form action="" method="post" class="col-md-6 col-md-offset-3">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <input id="city_name" type="text" class="form-control" name="city_name" placeholder="Miasto">
+            <div class="input-group-append">
+                <button class="btn btn-success" type="submit">Szukaj</button>
+            </div>
+        </div>
+    </form>
+    <br>
+</div>
+<div class="row justify-content-center">
+    <div class="text-center">
+        {% if current_day.city and current_day.country_code %}
+        <div id="rcorners">
+            <h4>Miasto : {{current_day.city}}</h4>
+            <h4>Kraj : {{current_day.country_code}}</h4>
+            <text>
+                <img src="http://openweathermap.org/img/wn/{{current_day.icon}}.png" alt="Image" height="50px"
+                     width="50px">
+                <i class="fas fa-sun"> Wschód Słońca : {{current_day.sunrise_time}}</i><br>
+                <i class="fas fa-moon"> Zachód Słońca : {{current_day.sunset_time}}</i><br>
+                <i class="fas fa-map-marker-alt"> Szerokość geograficzna : {{current_day.coordinate_lat}}</i><br>
+                <i class="fas fa-map-marker-alt"> Długość geograficzna : {{current_day.coordinate_lon}} </i><br>
+                <i class="fas fa-thermometer-three-quarters"> Temperatura : {{current_day.temp}}</i><br>
+                {% endif %}
+                {% if current_day.wind and current_day.cloudiness and current_day.pressure and current_day.humidity %}
+                <i class="fas fa-wind"> Prędkość wiatru : {{current_day.wind}}</i><br>
+                <i class="fas fa-cloud"> Zachmurzenie : {{current_day.cloudiness}}</i><br>
+                <i class="fas fa-compress-alt"> Ciśnienie : {{current_day.pressure}} </i><br>
+                <i class="fas fa-tint"> Wilgotność : {{current_day.humidity}}</i><br>
+            </text>
+        </div>
+        {% endif %}
+        {% if current_day == "" %}
+        <div class="alert alert-danger">
+            <div class="col-md-9" align="center">
+                <strong>Podano niewłaściwą nazwę miasta!</strong>
+            </div>
+        </div>
+        <img src="https://freepngimg.com/thumb/weather/23698-6-weather-transparent-background.png" alt="Image" height="400px"
+                     width="400px">
+        {% endif %}
+    </div>
+</div>
+<br>
+{% if current_day.city and current_day.country_code %}
+<one>
+    <two>
+        <text_small>
+            <img src="http://openweathermap.org/img/wn/{{five_days_list.1.icon}}.png" alt="Image" height="50px"
+                 width="50px"><br>
+            <i class="fas fa-calendar-alt"> Dzień : {{five_days_list.1.date}}</i>
+            <i class="far fa-clock"> Czas : {{five_days_list.1.time}}</i>
+            <i class="fas fa-thermometer-three-quarters"> Temperatura : {{five_days_list.1.temp}}</i><br>
+            <i class="fas fa-compress-alt"> Ciśnienie : {{five_days_list.1.pressure}} </i><br>
+        </text_small>
+    </two>
+    <three>
+        <text_small>
+            <img src="http://openweathermap.org/img/wn/{{five_days_list.2.icon}}.png" alt="Image" height="50px"
+                 width="50px"><br>
+            <i class="fas fa-calendar-alt"> Dzień : {{five_days_list.2.date}}</i>
+            <i class="far fa-clock"> Czas : {{five_days_list.2.time}}</i>
+            <i class="fas fa-thermometer-three-quarters"> Temperatura : {{five_days_list.2.temp}}</i><br>
+            <i class="fas fa-compress-alt"> Ciśnienie : {{five_days_list.2.pressure}} </i><br>
+        </text_small>
+    </three>
+    <four>
+        <text_small>
+            <img src="http://openweathermap.org/img/wn/{{five_days_list.3.icon}}.png" alt="Image" height="50px"
+                 width="50px"><br>
+            <i class="fas fa-calendar-alt"> Dzień : {{five_days_list.3.date}}</i>
+            <i class="far fa-clock"> Czas : {{five_days_list.3.time}}</i>
+            <i class="fas fa-thermometer-three-quarters"> Temperatura : {{five_days_list.3.temp}}</i><br>
+            <i class="fas fa-compress-alt"> Ciśnienie : {{five_days_list.3.pressure}} </i><br>
+        </text_small>
+    </four>
+    <five>
+        <text_small>
+            <img src="http://openweathermap.org/img/wn/{{five_days_list.4.icon}}.png" alt="Image" height="50px"
+                 width="50px"><br>
+            <i class="fas fa-calendar-alt"> Dzień : {{five_days_list.4.date}}</i>
+            <i class="far fa-clock"> Czas : {{five_days_list.4.time}}</i>
+            <i class="fas fa-thermometer-three-quarters"> Temperatura : {{five_days_list.4.temp}}</i><br>
+            <i class="fas fa-compress-alt"> Ciśnienie : {{five_days_list.4.pressure}} </i><br>
+        </text_small>
+    </five>
+    <six>
+        <text_small>
+            <img src="http://openweathermap.org/img/wn/{{five_days_list.5.icon}}.png" alt="Image" height="50px"
+                 width="50px"><br>
+            <i class="fas fa-calendar-alt"> Dzień : {{five_days_list.5.date}}</i>
+            <i class="far fa-clock"> Czas : {{five_days_list.5.time}}</i>
+            <i class="fas fa-thermometer-three-quarters"> Temperatura : {{five_days_list.5.temp}}</i><br>
+            <i class="fas fa-compress-alt"> Ciśnienie : {{five_days_list.5.pressure}} </i><br>
+        </text_small>
+    </six>
+</one>
+
+{% endif %}
+
+<style>
+
+h4{
+font-family:'Georgia';
+font-size:25px;
+color: White;
+}
+footer {
+  text-align: center;
+  padding: 7px;
+  background-color: #40404d;
+  color: white;
+  font-family:'Courier New';
+  font-size:20px;
+  position: fixed;
+  height: 40px;
+  bottom: 0;
+  width: 100%
+}
+text {
+font-family:'Courier New';
+font-size:20px;
+color: White;
+}
+text_small {
+font-family:'Courier New';
+font-size:15px;
+color: White;
+}
+
+#rcorners {
+border-radius: 25px;
+background-color: #e85151;
+padding: 20px;
+width: 420px;
+height: 450px;
+}
+rcon_small {
+border-radius: 25px;
+background-color: #e85151;
+padding: 20px;
+width: 210px;
+height: 200px;
+}
+
+body{
+background-color:#e8ebe1;
+ }
+
+one{
+	position: absolute;
+	left: 100px;
+	right:100px;
+	height: 300px;
+	background:  #40404d;
+}
+
+two{
+text-align:center;
+position: absolute;
+border-radius: 5px;
+top: 45px;
+left: 250px;
+background-color: #e85151;
+width: 210px;
+height: 200px;
+}
+
+three {
+text-align:center;
+position: absolute;
+border-radius: 5px;
+top: 45px;
+left: 550px;
+background-color: #e85151;
+width: 210px;
+height: 200px;
+}
+
+four {
+text-align:center;
+position: absolute;
+border-radius: 5px;
+top: 45px;
+left: 850px;
+background-color: #e85151;
+width: 210px;
+height: 200px;
+}
+
+five {
+text-align:center;
+position: absolute;
+border-radius: 5px;
+top: 45px;
+left: 1150px;
+background-color: #e85151;
+width: 210px;
+height: 200px;
+}
+
+six {
+text-align:center;
+position: absolute;
+border-radius: 5px;
+top: 45px;
+left: 1450px;
+background-color: #e85151;
+width: 210px;
+height: 200px;
+}
+img_left {
+  display: block;
+  margin-left: 100px;
+  width: 100px;
+  height: 700px;
+}
+
+
+
+</style>
+<footer>
+    <p>Autor: Grzegorz Pytlak</p>
+</footer>
+</body>
+
+</html>
