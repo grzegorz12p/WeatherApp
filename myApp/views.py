@@ -27,7 +27,7 @@ def index(request):
                 "sunset_time": sunset_time.strftime('%I:%M %p'),
                 "coordinate_lon": str(current_weather_data_api['coord']['lon']),
                 "coordinate_lat": str(current_weather_data_api['coord']['lat']),
-                "temp": str(int(current_weather_data_api['main']['temp']) - 273) + " C",
+                "temp": str(int(current_weather_data_api['main']['temp']) - 273) + "°C",
                 "wind": str(current_weather_data_api['wind']['speed']) + " m/s",
                 "cloudiness": str(current_weather_data_api['clouds']['all']) + " %",
                 "pressure": str(current_weather_data_api['main']['pressure']) + " hPa",
@@ -45,7 +45,7 @@ def index(request):
                     five_days_weather_list[j]['date'] = date.strftime('%d.%m.%Y')
                     five_days_weather_list[j]['time'] = date.strftime('%I:%M')
                     five_days_weather_list[j]['temp'] = str(
-                        int(five_days_weather_data_api['list'][i]['main']['temp']) - 273) + " C"
+                        int(five_days_weather_data_api['list'][i]['main']['temp']) - 273) + "°C"
                     five_days_weather_list[j]['pressure'] = str(
                         five_days_weather_data_api['list'][i]['main']['pressure']) + " hPa"
                     five_days_weather_list[j]['icon'] = str(
