@@ -33,8 +33,8 @@
             <h4>Miasto : {{current_day.city}}</h4>
             <h4>Kraj : {{current_day.country_code}}</h4>
             <text>
-                <img src="http://openweathermap.org/img/wn/{{current_day.icon}}.png" alt="Image" height="50px"
-                     width="50px">
+                <img src="http://openweathermap.org/img/wn/{{current_day.icon}}.png" alt="Image" height="60px"
+                     width="80px">
                 <br>
                 <i class="fas fa-sun"> Wschód Słońca : {{current_day.sunrise_time}}</i><br>
                 <i class="fas fa-moon"> Zachód Słońca : {{current_day.sunset_time}}</i><br>
@@ -67,11 +67,12 @@
 <one>
     <two>
         <text_small>
-            <img src="http://openweathermap.org/img/wn/{{five_days_list.0.icon}}.png" alt="Image" height="50px"
-                 width="50px"><br>
+            <img src="http://openweathermap.org/img/wn/{{five_days_list.0.icon}}.png" alt="Image" height="60px"
+                 width="80px"><br>
             <text_day>
                 {{five_days_list.0.day}}
             </text_day>
+            <br>
             <i class="fas fa-calendar-alt"> Data : {{five_days_list.0.date}}</i>
             <i class="far fa-clock"> Czas : {{five_days_list.0.time}}</i>
             <i class="fas fa-thermometer-three-quarters"> Temperatura : {{five_days_list.0.temp}}</i><br>
@@ -80,11 +81,12 @@
     </two>
     <three>
         <text_small>
-            <img src="http://openweathermap.org/img/wn/{{five_days_list.1.icon}}.png" alt="Image" height="50px"
-                 width="50px"><br>
+            <img src="http://openweathermap.org/img/wn/{{five_days_list.1.icon}}.png" alt="Image" height="60px"
+                 width=80px"> <br>
             <text_day>
                 {{five_days_list.1.day}}
             </text_day>
+            <br>
             <i class="fas fa-calendar-alt"> Data : {{five_days_list.1.date}}</i>
             <i class="far fa-clock"> Czas : {{five_days_list.2.time}}</i>
             <i class="fas fa-thermometer-three-quarters"> Temperatura : {{five_days_list.1.temp}}</i><br>
@@ -93,11 +95,12 @@
     </three>
     <four>
         <text_small>
-            <img src="http://openweathermap.org/img/wn/{{five_days_list.2.icon}}.png" alt="Image" height="50px"
-                 width="50px"><br>
+            <img src="http://openweathermap.org/img/wn/{{five_days_list.2.icon}}.png" alt="Image" height="60px"
+                 width="80px"><br>
             <text_day>
                 {{five_days_list.2.day}}
             </text_day>
+            <br>
             <i class="fas fa-calendar-alt"> Data: {{five_days_list.2.date}}</i>
             <i class="far fa-clock"> Czas : {{five_days_list.2.time}}</i>
             <i class="fas fa-thermometer-three-quarters"> Temperatura : {{five_days_list.2.temp}}</i><br>
@@ -106,11 +109,12 @@
     </four>
     <five>
         <text_small>
-            <img src="http://openweathermap.org/img/wn/{{five_days_list.3.icon}}.png" alt="Image" height="50px"
-                 width="50px"><br>
+            <img src="http://openweathermap.org/img/wn/{{five_days_list.3.icon}}.png" alt="Image" height="60px"
+                 width="80px"><br>
             <text_day>
                 {{five_days_list.3.day}}
             </text_day>
+            <br>
             <i class="fas fa-calendar-alt"> Data : {{five_days_list.3.date}}</i>
             <i class="far fa-clock"> Czas : {{five_days_list.3.time}}</i>
             <i class="fas fa-thermometer-three-quarters"> Temperatura : {{five_days_list.3.temp}}</i><br>
@@ -119,11 +123,12 @@
     </five>
     <six>
         <text_small>
-            <img src="http://openweathermap.org/img/wn/{{five_days_list.4.icon}}.png" alt="Image" height="50px"
-                 width="50px"><br>
+            <img src="http://openweathermap.org/img/wn/{{five_days_list.4.icon}}.png" alt="Image" height="60px"
+                 width="80px"><br>
             <text_day>
                 {{five_days_list.4.day}}
             </text_day>
+            <br>
             <i class="fas fa-calendar-alt"> Data : {{five_days_list.4.date}}</i>
             <i class="far fa-clock"> Czas : {{five_days_list.4.time}}</i>
             <i class="fas fa-thermometer-three-quarters"> Temperatura : {{five_days_list.4.temp}}</i><br>
@@ -143,8 +148,8 @@ color: White;
 }
 footer {
   text-align: center;
-  padding: 7px;
   background-color: #40404d;
+  padding: 7px;
   color: white;
   font-family:'Courier New';
   font-size:20px;
@@ -251,6 +256,10 @@ background-color: #e85151;
 width: 210px;
 height: 200px;
 }
+
+
+
+
 
 
 
