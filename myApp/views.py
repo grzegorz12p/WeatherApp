@@ -17,7 +17,7 @@ def index(request):
             five_days_weather_response = requests.get(five_days_weather_api)
             five_days_weather_data_api = json.loads(five_days_weather_response.text)
             sunrise_time = datetime.fromtimestamp(current_weather_data_api['sys']['sunrise'])
-            sunset_time =datetime.fromtimestamp(current_weather_data_api['sys']['sunset'])
+            sunset_time = datetime.fromtimestamp(current_weather_data_api['sys']['sunset'])
 
             current_day = {
                 "city": str(city).capitalize(),
@@ -39,7 +39,7 @@ def index(request):
             for i in range(0, five_days_weather_data_api['cnt']):
                 date_json = five_days_weather_data_api['list'][i]['dt_txt']
                 date = datetime.strptime(date_json, '%Y-%m-%d %H:%M:%S')
-                if not(int(date.strftime('%d')) == today_date):
+                if not (int(date.strftime('%d')) == today_date):
                     five_days_weather_list[j] = {}
                     five_days_weather_list[j]['day'] = date.strftime('%A')
                     five_days_weather_list[j]['date'] = date.strftime('%d.%m.%Y')
