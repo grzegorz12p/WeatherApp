@@ -18,7 +18,6 @@ def index(request):
             five_days_weather_data_api = json.loads(five_days_weather_response.text)
             sunrise_time = datetime.fromtimestamp(current_weather_data_api['sys']['sunrise'])
             sunset_time = datetime.fromtimestamp(current_weather_data_api['sys']['sunset'])
-
             current_day = {
                 "city": str(city).capitalize(),
                 "country_code": str(current_weather_data_api['sys']['country']),
@@ -45,11 +44,11 @@ def index(request):
                     five_days_weather_list[j]['date'] = date.strftime('%d.%m.%Y')
                     five_days_weather_list[j]['time'] = date.strftime('%I:%M')
                     five_days_weather_list[j]['temp'] = str(
-                        int(five_days_weather_data_api['list'][i]['main']['temp']) - 273) + "°C"
+                        int(five_days_weather_data_api['list'][i + 4]['main']['temp']) - 273) + "°C"
                     five_days_weather_list[j]['pressure'] = str(
-                        five_days_weather_data_api['list'][i]['main']['pressure']) + " hPa"
+                        five_days_weather_data_api['list'][i + 4]['main']['pressure']) + " hPa"
                     five_days_weather_list[j]['icon'] = str(
-                        five_days_weather_data_api['list'][i]['weather'][0]['icon'])
+                        five_days_weather_data_api['list'][i + 4]['weather'][0]['icon'])
                     today_date += 1
                     j += 1
                 else:
