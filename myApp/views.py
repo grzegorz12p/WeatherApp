@@ -52,7 +52,6 @@ def index(request):
                             five_days_weather_data_api['list'][i + 4]['weather'][0]['icon'])
                     except IndexError:
                         print(IndexError)
-                    finally:
                         five_days_weather_list[j]['temp'] = str(
                             int(five_days_weather_data_api['list'][i]['main']['temp']) - 273) + "°C"
                         five_days_weather_list[j]['pressure'] = str(
