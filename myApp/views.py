@@ -43,12 +43,22 @@ def index(request):
                     five_days_weather_list[j]['day'] = date.strftime('%A')
                     five_days_weather_list[j]['date'] = date.strftime('%d.%m.%Y')
                     five_days_weather_list[j]['time'] = date.strftime('%I:%M')
-                    five_days_weather_list[j]['temp'] = str(
-                        int(five_days_weather_data_api['list'][i + 4]['main']['temp']) - 273) + "°C"
-                    five_days_weather_list[j]['pressure'] = str(
-                        five_days_weather_data_api['list'][i + 4]['main']['pressure']) + " hPa"
-                    five_days_weather_list[j]['icon'] = str(
-                        five_days_weather_data_api['list'][i + 4]['weather'][0]['icon'])
+                    try:
+                        five_days_weather_list[j]['temp'] = str(
+                            int(five_days_weather_data_api['list'][i + 4]['main']['temp']) - 273) + "°C"
+                        five_days_weather_list[j]['pressure'] = str(
+                            five_days_weather_data_api['list'][i + 4]['main']['pressure']) + " hPa"
+                        five_days_weather_list[j]['icon'] = str(
+                            five_days_weather_data_api['list'][i + 4]['weather'][0]['icon'])
+                    except IndexError:
+                        print(IndexError)
+                    finally:
+                        five_days_weather_list[j]['temp'] = str(
+                            int(five_days_weather_data_api['list'][i]['main']['temp']) - 273) + "°C"
+                        five_days_weather_list[j]['pressure'] = str(
+                            five_days_weather_data_api['list'][i]['main']['pressure']) + " hPa"
+                        five_days_weather_list[j]['icon'] = str(
+                            five_days_weather_data_api['list'][i]['weather'][0]['icon'])
                     today_date += 1
                     j += 1
                 else:
